@@ -78,10 +78,10 @@ const defaultModifiers = {
 export const getImage: ProviderGetImage = (src, { modifiers = {}, baseURL = '/' } = {}) => {
   const mergeModifiers = { ...defaultModifiers, ...modifiers }
 
-  const srcWithoutExtension = src.replace(/\.[^/.]+$/, '')
+  // const srcWithoutExtension = src.replace(/\.[^/.]+$/, '')
   const operations = operationsGenerator(mergeModifiers as any)
 
   return {
-    url: joinURL(baseURL, operations, srcWithoutExtension)
+    url: joinURL(baseURL, operations, src)
   }
 }
